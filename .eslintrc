@@ -1,0 +1,41 @@
+{
+  "extends": [
+    "react-app",
+    "plugin:jsx-a11y/recommended"
+  ],
+  "plugins": [
+    "jsx-a11y"
+  ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "parser": "babel-eslint",
+  "rules": {
+    "no-trailing-spaces": 2,
+    "comma-dangle": [2, "never"],
+    "eqeqeq": [2, "always"],
+    "complexity": [2, 4],
+    "prefer-const": 2,
+    "eol-last": [2, "never"],
+    "semi": [1, "always"],
+    "global-require": 2,
+    "camelcase": 2,
+    "no-alert": 2,
+    "no-multi-spaces": 2,
+    "no-var": 2,
+    "no-shadow-restricted-names": 2,
+    "no-shadow": 2,
+    "no-undef": 2,
+    "no-unused-vars": 2,
+    "no-unused-expressions": 2,
+    "no-param-reassign": 2,
+    "no-console": 2,
+    "no-loop-func": 2,
+    "no-eval": 2,
+    "no-multiple-empty-lines": 2,
+    "no-unreachable": 2,
+    "no-redeclare": [2]
+  }
+}
