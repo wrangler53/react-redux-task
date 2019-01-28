@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
 
 import candidatesReducer from './candidates';
+import boardColumnsReducer from './board-columns';
 
 const rootReducer = combineReducers({
-  candidatesReducer
+  candidatesReducer,
+  boardColumnsReducer
 });
 
 export default rootReducer;

@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { getCandidates } from '../api';
 import { setCandidates } from '../actions';
 
+import Board from './Board';
+
 class App extends Component {
   componentDidMount() {
     getCandidates()
@@ -15,7 +17,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>Hello World</div>
+      <Board />
     );
   }
 }
