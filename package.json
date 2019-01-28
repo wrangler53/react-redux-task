@@ -1,6 +1,7 @@
 {
   "name": "react-redux-task",
   "version": "0.1.0",
+  "description": "React assigment for Ciklum",
   "private": true,
   "dependencies": {
     "react": "^16.7.0",
@@ -13,13 +14,19 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wrangler53/react-redux-task.git"
+  },
+  "author": {
+    "name": "Yaroslav Melnychuk",
+    "email": "melnichukjarik@gmail.com"
+  },
   "eslintConfig": {
     "extends": "react-app"
   },
   "browserslist": [
     ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
+    "not dead"
   ]
 }
