@@ -1,5 +1,37 @@
 .candidate-card {
-  width: 100px;
-  height: 50px;
-  background: red;
+  @include flex(column, space-around, stretch);
+  width: 80%;
+  min-height: 150px;
+  padding: 15px;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 6px -1px $dark-grey;
+  background: $white;
+
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  &-info {
+    @include flex(row, flex-start, center);
+
+    &__image {
+      width: 25%;
+      overflow: hidden;
+      border-radius: 50px;
+    }
+
+    &__name {
+      margin-left: 20px;
+      @include font($Exo2, $dark-grey, 1.3rem);
+    }
+  }
+
+  &-controls {
+    @include flex(row, space-around);
+
+    &__item {
+      cursor: pointer;
+      @include font($Exo2, $dark-grey, 2rem);
+    }
+  }
 }

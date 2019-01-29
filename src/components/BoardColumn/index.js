@@ -5,13 +5,14 @@ import CandidateCard from '../CandidateCard';
 
 const BoardColumn = ({ name, candidates }) => (
   <div className="board-column">
-    <div className="board-column__header">{name}</div>
+    <div className="board-column__header">{name} ({candidates.length})</div>
     <div className="board-column__items">
       {
-        candidates.map(candidate =>
+        candidates.map(({ id, name, picture }) =>
           <CandidateCard
-            key={candidate.id.value}
-            candidate={candidate}
+            key={id.value}
+            candidateName={name}
+            candidatePicture={picture}
           />
         )
       }
