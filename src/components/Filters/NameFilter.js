@@ -1,10 +1,47 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
 
-const NameFilter = () => (
-  <div className="filters-item">
-    <input type="text" className="filters-item__input" placeholder="Enter candidate-`s name" />
-    <button type="text" className="filters-item__button">Search By Candidate Name</button>
-  </div>
-);
+import { searchByName } from '../../actions';
 
-export default NameFilter;
+class NameFilter extends PureComponent {
+  state = {
+    enteredName: ''
+  }
+
+  handleInput = ({ target }) => {
+    this.setState({ enteredName: target.value });
+  }
+
+  submitSearch = () => {
+    const { enteredName } = this.state;
+
+    (enteredName.length === 0) ?
+      this.props.searchByName(null) :
+      this.props.searchByName(enteredName);
+
+    this.setState({ enteredName: '' });
+  }
+
+  render() {
+    return (
+      <div className="filters-item">
+        <input
+          type="text"
+          className="filters-item__input"
+          placeholder="Enter candidate`s name"
+          value={this.state.enteredName}
+          onChange={event => this.handleInput(event)}
+        />
+        <button
+          type="text"
+          className="filters-item__button"
+          onClick={this.submitSearch}
+        >Search By Candidate`s name</button>
+      </div>
+    );
+  }
+}
+
+const mapDispatchToProps = { searchByName };
+
+export default connect(null, mapDispatchToProps)(NameFilter);

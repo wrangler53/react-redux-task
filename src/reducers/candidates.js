@@ -14,7 +14,6 @@ const candidatesReducer = (state = {}, action) => {
         ...state,
         [action.payload.candidateIndex]: action.payload.candidate
       };
-
     case actionTypes.DECREASE_STATUS:
       return {
         ...state,
@@ -24,7 +23,18 @@ const candidatesReducer = (state = {}, action) => {
     case actionTypes.SEARCH_BY_CITY:
       return {
         ...state,
-        filters: { city: action.payload }
+        filters: {
+          ...state.filters,
+          city: action.payload
+        }
+      };
+    case actionTypes.SEARCH_BY_NAME:
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          name: action.payload
+        }
       };
 
     default:

@@ -14,9 +14,12 @@ class CityFilter extends PureComponent {
 
   submitSearch = () => {
     const { enteredCity } = this.state;
+
     (enteredCity.length === 0) ?
       this.props.searchByCity(null) :
       this.props.searchByCity(enteredCity);
+
+    this.setState({ enteredCity: ''});
   }
 
   render() {

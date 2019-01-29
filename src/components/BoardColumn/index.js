@@ -27,6 +27,11 @@ const mapStateToProps = ({ candidatesReducer }, { columnIndex }) => ({
       .filter(({ location }) => {
         return (!(candidatesReducer.filters && candidatesReducer.filters.city)) ? true : candidatesReducer.filters.city === location.city;
       })
+      .filter(({ name }) => {
+        return (!(candidatesReducer.filters && candidatesReducer.filters.name)) ?
+          true :
+          candidatesReducer.filters.name === name.first || candidatesReducer.filters.name === name.last;
+      })
 });
 
 export default connect(mapStateToProps)(BoardColumn);
