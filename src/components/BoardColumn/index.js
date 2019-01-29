@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import PropTypes from 'prop-types';
+
 import CandidateCard from '../CandidateCard';
 
 const BoardColumn = ({ columnName, columnIndex, candidates }) => (
@@ -33,5 +35,11 @@ const mapStateToProps = ({ candidatesReducer }, { columnIndex }) => ({
           candidatesReducer.filters.name === name.first || candidatesReducer.filters.name === name.last;
       })
 });
+
+BoardColumn.propTypes = {
+  columnName: PropTypes.string,
+  columnIndex: PropTypes.number.isRequired,
+  candidates: PropTypes.arrayOf(PropTypes.object)
+};
 
 export default connect(mapStateToProps)(BoardColumn);

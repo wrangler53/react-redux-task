@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import PropTypes from 'prop-types';
+
 import { increaseCandidateStatus } from '../../actions';
 import { decreaseCandidateStatus } from '../../actions';
 
@@ -62,5 +64,14 @@ const mapStateToProps = ({ candidatesReducer, boardColumnsReducer }, { candidate
 });
 
 const mapDispatchToProps = { increaseCandidateStatus, decreaseCandidateStatus };
+
+CandidateCard.propTypes = {
+  candidate: PropTypes.object,
+  candidateIndex: PropTypes.number.isRequired,
+  columnsCount: PropTypes.number.isRequired,
+  columnIndex: PropTypes.number.isRequired,
+  increaseCandidateStatus: PropTypes.func,
+  decreaseCandidateStatus: PropTypes.func
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(CandidateCard);

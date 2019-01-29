@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
+import PropTypes from 'prop-types';
+
 import { searchByName } from '../../actions';
 
 class NameFilter extends PureComponent {
@@ -43,5 +45,9 @@ class NameFilter extends PureComponent {
 }
 
 const mapDispatchToProps = { searchByName };
+
+NameFilter.propTypes = {
+  searchByName: PropTypes.func.isRequired
+};
 
 export default connect(null, mapDispatchToProps)(NameFilter);

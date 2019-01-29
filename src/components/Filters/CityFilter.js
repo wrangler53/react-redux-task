@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
+import PropTypes from 'prop-types';
+
 import { searchByCity } from '../../actions';
 
 class CityFilter extends PureComponent {
@@ -19,7 +21,7 @@ class CityFilter extends PureComponent {
       this.props.searchByCity(null) :
       this.props.searchByCity(enteredCity);
 
-    this.setState({ enteredCity: ''});
+    this.setState({ enteredCity: '' });
   }
 
   render() {
@@ -43,5 +45,9 @@ class CityFilter extends PureComponent {
 };
 
 const mapDispatchToProps = { searchByCity };
+
+CityFilter.propTypes = {
+  searchByCity: PropTypes.func.isRequired
+};
 
 export default connect(null, mapDispatchToProps)(CityFilter);
