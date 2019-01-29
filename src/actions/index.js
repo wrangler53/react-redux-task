@@ -26,12 +26,12 @@ export const fetchCandidates = () => dispatch => {
     .catch(error => dispatch(requestFailed(error)));
 };
 
-export const increaseCandidateStatus = (candidateId, newStatus) => ({
+export const increaseCandidateStatus = (candidate, candidateIndex) => ({
   type: actionTypes.INCREASE_STATUS,
-  payload: { candidateId, newStatus }
+  payload: { candidate, candidateIndex }
 });
 
-export const decreaseCandidateStatus = (candidateId, newStatus) => ({
+export const decreaseCandidateStatus = (candidate, candidateIndex) => ({
   type: actionTypes.DECREASE_STATUS,
-  payload: { candidateId, newStatus }
+  payload: { candidate, candidateIndex }
 });

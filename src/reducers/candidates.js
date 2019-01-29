@@ -10,19 +10,17 @@ const candidatesReducer = (state = {}, action) => {
       return { ...state, error: action.error.message, isLoading: false };
 
     case actionTypes.INCREASE_STATUS:
-      const increasedStatusCandidate = state.find(({ id }) => id.value === action.payload.candidateId);
-      increasedStatusCandidate.status = action.payload.newStatus;
+      return {
+        ...state,
+        [action.payload.candidateIndex]: action.payload.candidate
+      };
 
-      const newIncreasedCandidateState = state.filter(({ id }) => id.value !== action.payload.candidateId);
-
-      return [...newIncreasedCandidateState, increasedStatusCandidate];
     case actionTypes.DECREASE_STATUS:
-      const decreasedStatusCandidate = state.find(({ id }) => id.value === action.payload.candidateId);
-      decreasedStatusCandidate.status = action.payload.newStatus;
+      return {
+        ...state,
+        [action.payload.candidateIndex]: action.payload.candidate
+      };
 
-      const newDecreasedCandidateState = state.filter(({ id }) => id.value !== action.payload.candidateId);
-
-      return [...newDecreasedCandidateState, decreasedStatusCandidate];
     default:
       return state;
   }

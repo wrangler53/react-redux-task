@@ -8,29 +8,31 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 const CandidateCard = ({
-  candidate: { picture, name, status },
-  candidateId,
+  candidate,
+  candidateIndex,
   increaseCandidateStatus,
   decreaseCandidateStatus,
   columnIndex,
   columnsCount
 }) => {
   const increaseStatus = () => {
-    const newStatus = status + 1;
-    increaseCandidateStatus(candidateId, newStatus);
+    const newStatusCandidate = { ...candidate };
+    newStatusCandidate.status++;
+    increaseCandidateStatus(newStatusCandidate, candidateIndex);
   };
 
   const decreaseStatus = () => {
-    const newStatus = status - 1;
-    decreaseCandidateStatus(candidateId, newStatus);
+    const newStatusCandidate = { ...candidate };
+    newStatusCandidate.status--;
+    decreaseCandidateStatus(newStatusCandidate, candidateIndex);
   };
 
   return (
     <div className="candidate-card">
       <div className="candidate-card-info">
-        <img className="candidate-card-info__image" alt="" src={picture.large} />
+        <img className="candidate-card-info__image" alt="" src={candidate.picture.large} />
         <div className="candidate-card-info__name">
-          {name.first} {name.last}
+          {candidate.name.first} {candidate.name.last}
         </div>
       </div>
       <div className="candidate-card-controls">
@@ -55,6 +57,7 @@ const CandidateCard = ({
 
 const mapStateToProps = ({ candidatesReducer, boardColumnsReducer }, { candidateId }) => ({
   candidate: Object.values(candidatesReducer).find(({ id }) => id.value === candidateId),
+  candidateIndex: Object.values(candidatesReducer).findIndex(({ id }) => id.value === candidateId),
   columnsCount: boardColumnsReducer.length
 });
 
