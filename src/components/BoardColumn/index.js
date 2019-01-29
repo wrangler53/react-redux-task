@@ -8,11 +8,10 @@ const BoardColumn = ({ name, candidates }) => (
     <div className="board-column__header">{name} ({candidates.length})</div>
     <div className="board-column__items">
       {
-        candidates.map(({ id, name, picture }) =>
+        candidates.map(({ id }) =>
           <CandidateCard
             key={id.value}
-            candidateName={name}
-            candidatePicture={picture}
+            candidateId={id.value}
           />
         )
       }
