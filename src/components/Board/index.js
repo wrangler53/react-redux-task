@@ -4,16 +4,18 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import BoardColumn from '../BoardColumn';
+import ErrorBoundary from '../ErrorBoundary';
 
 const Board = ({ columns }) => (
   <div className="board">
     {
       columns && columns.map(({ name, index }) =>
-        <BoardColumn
-          key={index}
-          columnIndex={index}
-          columnName={name}
-        />
+        <ErrorBoundary key={index}>
+          <BoardColumn
+            columnIndex={index}
+            columnName={name}
+          />
+        </ErrorBoundary>
       )
     }
   </div>
