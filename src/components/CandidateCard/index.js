@@ -11,7 +11,9 @@ const CandidateCard = ({
   candidate: { picture, name, status },
   candidateId,
   increaseCandidateStatus,
-  decreaseCandidateStatus
+  decreaseCandidateStatus,
+  columnIndex,
+  columnsCount
 }) => {
   const increaseStatus = () => {
     const newStatus = status + 1;
@@ -32,23 +34,28 @@ const CandidateCard = ({
         </div>
       </div>
       <div className="candidate-card-controls">
-        <FontAwesomeIcon
-          icon={faAngleLeft}
-          className="candidate-card-controls__item"
-          onClick={decreaseStatus}
-        />
-        <FontAwesomeIcon
-          icon={faAngleRight}
-          className="candidate-card-controls__item"
-          onClick={increaseStatus}
-        />
+        {
+          columnIndex !== 1 && <FontAwesomeIcon
+            icon={faAngleLeft}
+            className="candidate-card-controls__item"
+            onClick={decreaseStatus}
+          />
+        }
+        {
+          columnIndex !== columnsCount && <FontAwesomeIcon
+            icon={faAngleRight}
+            className="candidate-card-controls__item"
+            onClick={increaseStatus}
+          />
+        }
       </div>
     </div>
   );
 };
 
-const mapStateToProps = ({ candidatesReducer }, { candidateId }) => ({
-  candidate: candidatesReducer.find(({ id }) => id.value === candidateId)
+const mapStateToProps = ({ candidatesReducer, boardColumnsReducer }, { candidateId }) => ({
+  candidate: candidatesReducer.find(({ id }) => id.value === candidateId),
+  columnsCount: boardColumnsReducer.length
 });
 
 const mapDispatchToProps = { increaseCandidateStatus, decreaseCandidateStatus };

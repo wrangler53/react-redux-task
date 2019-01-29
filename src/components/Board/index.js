@@ -9,8 +9,8 @@ const Board = ({ columns }) => (
       columns && columns.map(({ name, index }) =>
         <BoardColumn
           key={index}
-          index={index}
-          name={name}
+          columnIndex={index}
+          columnName={name}
         />
       )
     }
