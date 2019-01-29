@@ -1,0 +1,30 @@
+.filters {
+  &-item {
+    @include flex(row, flex-start, stretch);
+    margin-right: 20px;
+    height: 100%;
+
+    &__input {
+      margin-right: 5px;
+      box-sizing: border-box;
+      border-radius: 8px;
+      padding: 10px;
+      border: 2px solid #CDCDCD;
+      outline: none;
+      @include font($Exo2, $dark-grey, 1rem, 400, left);
+    }
+
+    &__button {
+      cursor: pointer;
+      border-radius: 8px;
+      outline: none;
+      border: none;
+      padding: 10px;
+      @include font($Exo2, $dark-grey, .8rem);
+
+      &:hover {
+        background: lighten($dark-grey, 40%);
+      }
+    }
+  }
+}

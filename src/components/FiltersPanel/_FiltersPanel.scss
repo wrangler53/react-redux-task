@@ -1,0 +1,6 @@
+.filters-panel {
+  @include flex(row, flex-start);
+  height: 12%;
+  padding: 20px;
+  box-sizing: border-box;
+}

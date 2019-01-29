@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import { fetchCandidates } from '../actions';
 
+import FiltersPanel from './FiltersPanel';
 import Board from './Board';
 
 class App extends Component {
@@ -12,7 +13,10 @@ class App extends Component {
 
   render() {
     return (
-      <Board />
+      <div className="container">
+        <FiltersPanel />
+        <Board />
+      </div>
     );
   }
 }
