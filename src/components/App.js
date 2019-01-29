@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
 import { fetchCandidates } from '../actions';
@@ -7,7 +7,7 @@ import FiltersPanel from './FiltersPanel';
 import Board from './Board';
 import ErrorBoundary from './ErrorBoundary';
 
-class App extends Component {
+class App extends PureComponent {
   componentDidMount() {
     this.props.fetchCandidates();
   }
