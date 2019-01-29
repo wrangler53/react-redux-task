@@ -1,0 +1,16 @@
+@mixin flex($flex-direction: row, $justify-content: center, $align-items: flex-start, $flex-property: 0 1 auto) {
+  display: flex;
+  flex: $flex-property;
+  flex-direction: $flex-direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+@mixin font($font-family: $Exo2, $color: inherit, $font-size: 1rem, $font-weight: 400, $text-align: center, $font-family: inherit) {
+  font-family: $font-family;
+  color: $color;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  text-align: $text-align;
+  font-family: $font-family;
+}

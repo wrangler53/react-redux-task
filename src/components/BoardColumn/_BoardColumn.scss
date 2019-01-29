@@ -1,0 +1,14 @@
+.board {
+  &-column {
+    @include flex(column, center, center, 1 1 0);
+    padding: 20px;
+    
+    &__header {
+      @include font($Exo2, $dark-grey, 1.2rem);
+    }
+
+    &__items {
+      @include flex(column, center, flex-start)
+    }
+  };
+}

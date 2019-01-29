@@ -1,1 +1,10 @@
+// Common styles
+@import './common/_normalize.scss';
+@import './common/_common.scss';
+@import './common/_fonts';
 @import './common/_variables';
+@import './common/_mixins.scss';
+
+// Component styles 
+@import '../../components/Board/_Board';
+@import '../../components/BoardColumn/_BoardColumn';
