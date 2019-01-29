@@ -5,8 +5,8 @@ import NameFilter from '../Filters/NameFilter';
 
 const FiltersPanel = () => (
   <div className="filters-panel">
-    <CityFilter />
     <NameFilter />
+    <CityFilter />
   </div>
 );
 

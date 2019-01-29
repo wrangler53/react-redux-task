@@ -4,3 +4,6 @@ export const REQUEST_FAILED = 'REQUEST_FAILED';
 
 export const INCREASE_STATUS = 'INCREASE_STATUS';
 export const DECREASE_STATUS = 'DECREASE_STATUS';
+
+export const SEARCH_BY_CITY = 'SEARCH_BY_CITY';
+export const SEARCH_BY_NAME = 'SEARCH_BY_NAME';

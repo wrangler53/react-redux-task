@@ -21,6 +21,12 @@ const candidatesReducer = (state = {}, action) => {
         [action.payload.candidateIndex]: action.payload.candidate
       };
 
+    case actionTypes.SEARCH_BY_CITY:
+      return {
+        ...state,
+        filters: { city: action.payload }
+      };
+
     default:
       return state;
   }

@@ -1,6 +1,7 @@
 import * as actionTypes from '../constants/actionTypes';
 import { getCandidates } from '../api';
 
+// Get candidates list
 export const requestStarted = () => ({
   type: actionTypes.REQUEST_STARTED
 });
@@ -26,6 +27,7 @@ export const fetchCandidates = () => dispatch => {
     .catch(error => dispatch(requestFailed(error)));
 };
 
+// Change candidate`s status
 export const increaseCandidateStatus = (candidate, candidateIndex) => ({
   type: actionTypes.INCREASE_STATUS,
   payload: { candidate, candidateIndex }
@@ -34,4 +36,15 @@ export const increaseCandidateStatus = (candidate, candidateIndex) => ({
 export const decreaseCandidateStatus = (candidate, candidateIndex) => ({
   type: actionTypes.DECREASE_STATUS,
   payload: { candidate, candidateIndex }
+});
+
+// Search by city name
+export const searchByCity = searchData => ({
+  type: actionTypes.SEARCH_BY_CITY,
+  payload: searchData
+});
+
+export const searchByName = searchData => ({
+  type: actionTypes.SEARCH_BY_NAME,
+  payload: searchData
 });
