@@ -7,6 +7,9 @@ import FiltersPanel from './FiltersPanel';
 import Board from './Board';
 import ErrorBoundary from './ErrorBoundary';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+
 class App extends PureComponent {
   componentDidMount() {
     this.props.fetchCandidates();
@@ -15,6 +18,10 @@ class App extends PureComponent {
   render() {
     return (
       <div className="container">
+        {
+          this.props.isLoading &&
+          <FontAwesomeIcon icon={faSpinner} spin color="#666" size="4x" className="spinner" />
+        }
         <ErrorBoundary>
           <FiltersPanel />
         </ErrorBoundary>
@@ -28,4 +35,8 @@ class App extends PureComponent {
 
 const mapDispatchToProps = { fetchCandidates };
 
-export default connect(null, mapDispatchToProps)(App);
+const mapStateToProps = ({ candidatesReducer }) => ({
+  isLoading: candidatesReducer.isLoading
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
