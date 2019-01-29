@@ -21,7 +21,7 @@ const BoardColumn = ({ columnName, columnIndex, candidates }) => (
 );
 
 const mapStateToProps = ({ candidatesReducer }, { columnIndex }) => ({
-  candidates: candidatesReducer.filter(({ status }) => status === columnIndex)
+  candidates: Object.values(candidatesReducer).filter(({ status }) => status === columnIndex)
 });
 
 export default connect(mapStateToProps)(BoardColumn);

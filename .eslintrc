@@ -16,7 +16,7 @@
     "no-trailing-spaces": 2,
     "comma-dangle": [2, "never"],
     "eqeqeq": [2, "always"],
-    "complexity": [2, 4],
+    "complexity": [2, 6],
     "prefer-const": 2,
     "eol-last": [2, "never"],
     "semi": [1, "always"],

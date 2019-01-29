@@ -1,21 +1,26 @@
-import { SET_CANDIDATES, INCREASE_STATUS, DECREASE_STATUS } from '../constants/actionTypes';
+import * as actionTypes from '../constants/actionTypes';
 
-const candidatesReducer = (state = [], { type, payload }) => {
-  switch (type) {
-    case SET_CANDIDATES:
-      return [...state, ...payload];
-    case INCREASE_STATUS:
-      const increasedStatusCandidate = state.find(({ id }) => id.value === payload.candidateId);
-      increasedStatusCandidate.status = payload.newStatus;
+const candidatesReducer = (state = {}, action) => {
+  switch (action.type) {
+    case actionTypes.REQUEST_STARTED:
+      return { ...state, isLoading: true };
+    case actionTypes.REQUEST_SUCCEEDED:
+      return { ...state, ...action.payload, isLoading: false };
+    case actionTypes.REQUEST_FAILED:
+      return { ...state, error: action.error.message, isLoading: false };
 
-      const newIncreasedCandidateState = state.filter(({ id }) => id.value !== payload.candidateId);
+    case actionTypes.INCREASE_STATUS:
+      const increasedStatusCandidate = state.find(({ id }) => id.value === action.payload.candidateId);
+      increasedStatusCandidate.status = action.payload.newStatus;
+
+      const newIncreasedCandidateState = state.filter(({ id }) => id.value !== action.payload.candidateId);
 
       return [...newIncreasedCandidateState, increasedStatusCandidate];
-    case DECREASE_STATUS:
-      const decreasedStatusCandidate = state.find(({ id }) => id.value === payload.candidateId);
-      decreasedStatusCandidate.status = payload.newStatus;
+    case actionTypes.DECREASE_STATUS:
+      const decreasedStatusCandidate = state.find(({ id }) => id.value === action.payload.candidateId);
+      decreasedStatusCandidate.status = action.payload.newStatus;
 
-      const newDecreasedCandidateState = state.filter(({ id }) => id.value !== payload.candidateId);
+      const newDecreasedCandidateState = state.filter(({ id }) => id.value !== action.payload.candidateId);
 
       return [...newDecreasedCandidateState, decreasedStatusCandidate];
     default:

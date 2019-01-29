@@ -9,7 +9,7 @@ const initialState = [{
   index: 3
 }];
 
-const boardColumnsReducer = (state = initialState, { type, payload }) => {
+const boardColumnsReducer = (state = initialState, { type }) => {
   switch (type) {
     default:
       return state;

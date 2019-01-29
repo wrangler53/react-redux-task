@@ -54,7 +54,7 @@ const CandidateCard = ({
 };
 
 const mapStateToProps = ({ candidatesReducer, boardColumnsReducer }, { candidateId }) => ({
-  candidate: candidatesReducer.find(({ id }) => id.value === candidateId),
+  candidate: Object.values(candidatesReducer).find(({ id }) => id.value === candidateId),
   columnsCount: boardColumnsReducer.length
 });
 

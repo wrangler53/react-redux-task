@@ -1,18 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { getCandidates } from '../api';
-import { setCandidates } from '../actions';
+import { fetchCandidates } from '../actions';
 
 import Board from './Board';
 
 class App extends Component {
   componentDidMount() {
-    getCandidates()
-      .then(candidates => {
-        candidates.forEach(candidate => candidate.status = 1);
-        this.props.setCandidates(candidates);
-      });
+    this.props.fetchCandidates();
   }
 
   render() {
@@ -22,6 +17,6 @@ class App extends Component {
   }
 }
 
-const mapDispatchToProps = { setCandidates };
+const mapDispatchToProps = { fetchCandidates };
 
 export default connect(null, mapDispatchToProps)(App);
