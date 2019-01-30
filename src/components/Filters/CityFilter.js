@@ -14,6 +14,10 @@ class CityFilter extends PureComponent {
     this.setState({ enteredCity: target.value });
   }
 
+  handleEnterPress = ({ keyCode, which }) => {
+    if (keyCode || which === 13) this.submitSearch();
+  }
+
   submitSearch = () => {
     const { enteredCity } = this.state;
 
@@ -33,6 +37,7 @@ class CityFilter extends PureComponent {
           placeholder="Enter city"
           value={this.state.enteredCity}
           onChange={event => this.handleInput(event)}
+          onKeyPress={event => this.handleEnterPress(event)}
         />
         <button
           type="text"
