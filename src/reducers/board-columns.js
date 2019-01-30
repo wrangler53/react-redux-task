@@ -1,3 +1,10 @@
+/*
+  To render an additional column on a board, just add
+  to the initialState array an object with required field 'index'
+  (its value should be greater by 1 than in previous object)
+  and optional field 'name'
+*/
+
 const initialState = [{
   name: 'Applied',
   index: 1

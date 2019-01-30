@@ -17,12 +17,14 @@ const CandidateCard = ({
   columnIndex,
   columnsCount
 }) => {
+  // Move candidate to the next column
   const increaseStatus = () => {
     const newStatusCandidate = { ...candidate };
     newStatusCandidate.status++;
     increaseCandidateStatus(newStatusCandidate, candidateIndex);
   };
 
+  // Move candidate to the previous column
   const decreaseStatus = () => {
     const newStatusCandidate = { ...candidate };
     newStatusCandidate.status--;

@@ -25,15 +25,21 @@ const BoardColumn = ({ columnName, columnIndex, candidates }) => (
 const mapStateToProps = ({ candidatesReducer }, { columnIndex }) => ({
   candidates:
     Object.values(candidatesReducer)
-      .filter(({ status }) => status === columnIndex)
-      .filter(({ location }) => {
-        return (!(candidatesReducer.filters && candidatesReducer.filters.city)) ? true : candidatesReducer.filters.city === location.city;
-      })
-      .filter(({ name }) => {
+      .filter(({ status }) => status === columnIndex) // render candidates in columns according to their status
+      .filter(({ location: { city } }) => {
+        return (!(candidatesReducer.filters && candidatesReducer.filters.city)) ?
+          true :
+          candidatesReducer.filters.city.toLowerCase() === city.toLowerCase();
+      }) // filter candidates by entered city in city filter
+      .filter(({ name: { first: firstName, last: lastName } }) => {
         return (!(candidatesReducer.filters && candidatesReducer.filters.name)) ?
           true :
-          candidatesReducer.filters.name === name.first || candidatesReducer.filters.name === name.last;
-      })
+          [
+            firstName.toLowerCase(),
+            lastName.toLowerCase(),
+            `${firstName.toLowerCase()} ${lastName.toLowerCase()}`
+          ].includes(candidatesReducer.filters.name.toLowerCase());
+      }) // filter candidates by entered name in name filter
 });
 
 BoardColumn.propTypes = {

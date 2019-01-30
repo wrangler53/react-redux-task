@@ -38,12 +38,13 @@ export const decreaseCandidateStatus = (candidate, candidateIndex) => ({
   payload: { candidate, candidateIndex }
 });
 
-// Search by city name
+// Search by entered city
 export const searchByCity = searchData => ({
   type: actionTypes.SEARCH_BY_CITY,
   payload: searchData
 });
 
+// Search by entered candidate`s name
 export const searchByName = searchData => ({
   type: actionTypes.SEARCH_BY_NAME,
   payload: searchData
