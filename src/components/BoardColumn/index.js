@@ -26,20 +26,16 @@ const mapStateToProps = ({ candidatesReducer }, { columnIndex }) => ({
   candidates:
     Object.values(candidatesReducer)
       .filter(({ status }) => status === columnIndex) // render candidates in columns according to their status
-      .filter(({ location: { city } }) => {
-        return (!(candidatesReducer.filters && candidatesReducer.filters.city)) ?
+      .filter(({ name: { first: firstName, last: lastName } }) =>
+        (!(candidatesReducer.filters && candidatesReducer.filters.name)) ?
           true :
-          candidatesReducer.filters.city.toLowerCase() === city.toLowerCase();
-      }) // filter candidates by entered city in city filter
-      .filter(({ name: { first: firstName, last: lastName } }) => {
-        return (!(candidatesReducer.filters && candidatesReducer.filters.name)) ?
+          new RegExp(candidatesReducer.filters.name, 'i').test(`${firstName} ${lastName}`)
+      ) // filter candidates by entered name in name filter
+      .filter(({ location: { city } }) =>
+        (!(candidatesReducer.filters && candidatesReducer.filters.city)) ?
           true :
-          [
-            firstName.toLowerCase(),
-            lastName.toLowerCase(),
-            `${firstName.toLowerCase()} ${lastName.toLowerCase()}`
-          ].includes(candidatesReducer.filters.name.toLowerCase());
-      }) // filter candidates by entered name in name filter
+          new RegExp(candidatesReducer.filters.city, 'i').test(city)
+      ) // filter candidates by entered city in city filter
 });
 
 BoardColumn.propTypes = {
