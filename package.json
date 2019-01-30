@@ -21,11 +21,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
     "eject": "react-scripts eject",
     "code-analyzer": "plato -r -d report src",
     "build-docker-image": "docker image build -t react-test-task .",
-    "run-docker-image": "docker container run -it -p 3000:3000 react-test-task"
+    "start-docker-image": "docker container run -it -p 3000:3000 react-test-task"
   },
   "repository": {
     "type": "git",
