@@ -35,8 +35,13 @@ const CandidateCard = ({
     <div className="candidate-card">
       <div className="candidate-card-info">
         <img className="candidate-card-info__image" alt="" src={candidate.picture.large} />
-        <div className="candidate-card-info__name">
-          {candidate.name.first} {candidate.name.last}
+        <div className="candidate-card-info__main">
+          <div className="candidate-card-info__main-name">
+            {candidate.name.first} {candidate.name.last}
+          </div>
+          <div className="candidate-card-info__main-city">
+            {candidate.location.city}
+          </div>
         </div>
       </div>
       <div className="candidate-card-controls">
