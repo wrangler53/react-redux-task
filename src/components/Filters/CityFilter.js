@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 
 import { searchByCity } from '../../actions';
 
+import './_Filter.scss';
+
 class CityFilter extends PureComponent {
   state = {
     enteredCity: ''

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './_ErrorBoundary.scss';
+
 class ErrorBoundary extends Component {
   state = {
     hasError: false,

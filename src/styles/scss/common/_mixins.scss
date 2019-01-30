@@ -1,3 +1,5 @@
+@import '../../styles/scss/common/_variables';
+
 @mixin flex($flex-direction: row, $justify-content: center, $align-items: flex-start, $flex-property: 0 1 auto) {
   display: flex;
   flex: $flex-property;

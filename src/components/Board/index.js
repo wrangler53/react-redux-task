@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 import BoardColumn from '../BoardColumn';
 import ErrorBoundary from '../ErrorBoundary';
 
+import './_Board.scss';
+
 const Board = ({ columns }) => (
   <div className="board">
     {

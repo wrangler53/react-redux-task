@@ -1,3 +1,5 @@
+@import '../../styles/scss/common/_mixins'; 
+
 .candidate-card {
   @include flex(column, space-around, stretch);
   width: 80%;

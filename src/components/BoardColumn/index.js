@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 
 import CandidateCard from '../CandidateCard';
 
+import './_BoardColumn.scss';
+
 const BoardColumn = ({ columnName, columnIndex, candidates }) => (
   <div className="board-column">
     <div className="board-column__header">{columnName} {candidates && `(${candidates.length})`}</div>
