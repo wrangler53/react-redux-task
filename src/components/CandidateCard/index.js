@@ -66,12 +66,12 @@ const mapStateToProps = ({ candidatesReducer, boardColumnsReducer }, { candidate
 const mapDispatchToProps = { increaseCandidateStatus, decreaseCandidateStatus };
 
 CandidateCard.propTypes = {
-  candidate: PropTypes.object,
+  candidate: PropTypes.object.isRequired,
   candidateIndex: PropTypes.number.isRequired,
   columnsCount: PropTypes.number.isRequired,
   columnIndex: PropTypes.number.isRequired,
-  increaseCandidateStatus: PropTypes.func,
-  decreaseCandidateStatus: PropTypes.func
+  increaseCandidateStatus: PropTypes.func.isRequired,
+  decreaseCandidateStatus: PropTypes.func.isRequired
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CandidateCard);

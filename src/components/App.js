@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
+import PropTypes from 'prop-types';
+
 import { fetchCandidates } from '../actions';
 
 import FiltersPanel from './FiltersPanel';
@@ -38,5 +40,10 @@ const mapDispatchToProps = { fetchCandidates };
 const mapStateToProps = ({ candidatesReducer }) => ({
   isLoading: candidatesReducer.isLoading
 });
+
+App.propTypes = {
+  fetchCandidates: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

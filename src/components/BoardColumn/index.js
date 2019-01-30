@@ -7,10 +7,10 @@ import CandidateCard from '../CandidateCard';
 
 const BoardColumn = ({ columnName, columnIndex, candidates }) => (
   <div className="board-column">
-    <div className="board-column__header">{columnName} ({candidates.length})</div>
+    <div className="board-column__header">{columnName} {candidates && `(${candidates.length})`}</div>
     <div className="board-column__items">
       {
-        candidates.map(({ id }) =>
+        candidates && candidates.map(({ id }) =>
           <CandidateCard
             key={id.value}
             candidateId={id.value}
@@ -37,7 +37,7 @@ const mapStateToProps = ({ candidatesReducer }, { columnIndex }) => ({
 });
 
 BoardColumn.propTypes = {
-  columnName: PropTypes.string,
+  columnName: PropTypes.string.isRequired,
   columnIndex: PropTypes.number.isRequired,
   candidates: PropTypes.arrayOf(PropTypes.object)
 };
