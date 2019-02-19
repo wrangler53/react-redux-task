@@ -16,6 +16,10 @@ class NameFilter extends PureComponent {
     this.setState({ enteredName: target.value });
   }
 
+  handleEnterPress = ({ keyCode, which }) => {
+    if (keyCode || which === 13) this.submitSearch();
+  }
+
   submitSearch = () => {
     const { enteredName } = this.state;
 
@@ -35,6 +39,7 @@ class NameFilter extends PureComponent {
           placeholder="Enter candidate`s name"
           value={this.state.enteredName}
           onChange={event => this.handleInput(event)}
+          onKeyPress={event => this.handleEnterPress(event)}
         />
         <button
           type="text"
