@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 
 import { searchByName } from '../../actions';
 
+import './_Filter.scss';
+
 class NameFilter extends PureComponent {
   state = {
     enteredName: ''

@@ -1,3 +1,5 @@
+@import '../../styles/scss/common/_mixins';
+
 .filters-panel {
   @include flex(row, flex-start);
   height: 12%;
